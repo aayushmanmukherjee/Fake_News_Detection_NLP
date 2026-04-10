@@ -28,7 +28,21 @@ Pandas, Scikit-learn, Nltk
 3. Models Tested
   - Logistic Regression
   - Multinomial Naive Bayes
-	- LinearSVC (Best Performer)
+  - LinearSVC (Best Performer)
+  - Model pipeline:
+    ```python
+    preprocess = Pipeline(
+        steps = [
+            ('tfidf',TfidfVectorizer())
+        ]
+	)
+	base_pipeline = Pipeline(
+    steps=[
+        ('preprocess',preprocess),
+        ('model',LinearSVC())
+    ]
+	)
+    ```
 
  4. Model Evaluation
   - Logistic Regression: ~91%
